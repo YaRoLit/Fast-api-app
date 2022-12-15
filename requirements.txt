@@ -1,0 +1,8 @@
+pandas
+numpy
+telethon
+fastapi
+torch
+transformers
+uvicorn
+streamlit
