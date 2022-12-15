@@ -1,0 +1,9 @@
+pandas
+numpy
+xmlrpc.client 
+telethon
+fastapi
+torch
+transformers
+uvicorn
+os
