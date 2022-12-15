@@ -1,6 +1,5 @@
 pandas
 numpy
-xmlrpc.client 
 telethon
 fastapi
 torch
