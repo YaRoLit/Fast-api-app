@@ -5,4 +5,4 @@ fastapi
 torch
 transformers
 uvicorn
-os
+streamlit
