@@ -71,7 +71,8 @@ def get_messages(link, msg_limit=10000):
 
 def read_chat(link, msg_lim=500):
         '''
-        Функция читает из чата по переданной ссылке список участников и msg_limit сообщений в датафреймы пандас.
+        Функция считывает по переданной ссылке список участников чата
+        и количество сообщений, равное msg_limit (по умолчанию 500).
         Потом соединяет эти два датафрейма.
         '''
         users = pd.DataFrame(get_participants(link), columns=['user_id', 'nickname', 'first_name', 'second_name'])
