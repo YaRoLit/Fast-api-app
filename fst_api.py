@@ -3,6 +3,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import uvicorn
 import os
+import subprocess
 
 
 class Item(BaseModel):
@@ -38,7 +39,7 @@ def find():
 
 
 @app.get("/reload/")
-def upload():
+def reload():
     '''
     Get-запрос для запуска скрипта парсера. При отправке этого запроса стартует асинхронный запуск скрипта,
     который скачивает последние 1000 сообщений из отслеживаемых чатов и склеивает их с файлами, в которых
@@ -46,7 +47,8 @@ def upload():
     разметки длительная по времени, то для скачивания обновленного файла также необходимо выждать время 
     (в зависимости от количества ссылок в трекере).
     '''
-    os.startfile('test.bat')
+    #os.startfile('test.bat') #for windows
+    subprocess.call(['./par_script']). #for linux
     return {"message": "chats uploading now. You have to wait some time for search uploading files."}
 
 
