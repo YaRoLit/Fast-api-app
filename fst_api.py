@@ -48,7 +48,7 @@ def reload():
     (в зависимости от количества ссылок в трекере).
     '''
     #os.startfile('test.bat') # for windows
-    subprocess.call(['./par_script']) # for linux
+    subprocess.call(['par_script']) # for linux
     return {"message": "chats uploading now. You have to wait some time for search uploading files."}
 
 
