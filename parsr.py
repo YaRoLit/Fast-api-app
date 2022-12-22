@@ -20,9 +20,9 @@ classifier = pipeline('sentiment-analysis',
 
 
 # В этом блоке ничего трогать не надо, это настроенный блок активации телеграм клиента
-api_id = ****
-api_hash = '***'            # !!!!! ВНИМАНИЕ !!!!!
-phone = '***'               # Для запуска программы здесь нужно указать свои персональные данные клиента telegram
+api_id = 17349
+api_hash = '344583e45741c457fe1862106095a5eb'            # !!!!! ВНИМАНИЕ !!!!!
+phone = 'YOUR_NUMBER_HERE'               # Для запуска программы здесь нужно указать свои персональные данные клиента telegram
 
 client = TelegramClient(phone, api_id, api_hash)
 client.start()
