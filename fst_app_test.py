@@ -9,9 +9,9 @@ def test_root():
         - /upload/\
         - /addlink/\
         - body form == {"link": "**filename or chat_link**"}'
-    assert f.root == {"message": info}
+    assert f.root() == {"message": info}
 
 def test_reload():
-    assert f.reload == {"message": "chats uploading now. You have to wait some time for search uploading files."}
+    assert f.reload() == {"message": "chats uploading now. You have to wait some time for search uploading files."}
 
     
