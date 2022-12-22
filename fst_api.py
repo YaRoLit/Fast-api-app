@@ -47,8 +47,8 @@ def reload():
     разметки длительная по времени, то для скачивания обновленного файла также необходимо выждать время 
     (в зависимости от количества ссылок в трекере).
     '''
-    #os.startfile('test.bat') #for windows
-    subprocess.call(['./par_script']). #for linux
+    #os.startfile('test.bat') # for windows
+    subprocess.call(['./par_script']) # for linux
     return {"message": "chats uploading now. You have to wait some time for search uploading files."}
 
 
