@@ -8,7 +8,7 @@ def test_root():
         - /reload/\
         - /upload/\
         - /addlink/\
-        - body form == {"link": "**filename or chat_link**"}
+        - body form == {"link": "**filename or chat_link**"}'
     assert f.root == {"message": info}
 
 def test_reload():
