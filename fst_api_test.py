@@ -13,7 +13,7 @@ def test_find():
     response = client.get('/chats/')
     files = [file for file in os.walk('./Data')]
     assert response.status_code == 200
-    assert response.text == list(files[0])
+    assert response.json() == list(files[0])
 
 def test_reload():
     response = client.get('/reload/')
