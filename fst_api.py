@@ -49,7 +49,7 @@ def reload():
     '''
     #os.startfile('test.bat') # for windows
     subprocess.Popen(['python3', 'parsr.py']) # for linux
-    return {"message": "chats uploading now. You have to wait some time for search uploading files."}
+    return {"message": "Chats are uploading now. Please wait."}
 
 
 @app.post("/upload/")
@@ -77,7 +77,7 @@ def addlink(item: Item):
         new_link = item.link + '\n'
         
         if new_link in tracker.readlines():
-            return {"message": "This link already exist"}
+            return {"message": "This link already exists"}
         
         tracker.write(new_link)
 
