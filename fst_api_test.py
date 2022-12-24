@@ -23,14 +23,14 @@ def test_reload():
 def test_upload():
     response = client.post(
         '/upload/',
-        json={'item': 'https://t.me/skazochnyy_les'}
+        item = 'https://t.me/skazochnyy_les'}
         )
     assert response.status_code == 200
 
 def test_addlink_new():
     response = client.post(
         '/addlink/',
-        json={'item': 'https://t.me/hp_main'}
+        item = 'https://t.me/hp_main'}
         )
     assert response.status_code == 200
     assert response.json() == {"message": "OK"}
@@ -38,7 +38,7 @@ def test_addlink_new():
 def test_addlink_old():
     response = client.post(
         '/addlink/',
-        json={'item': 'https://t.me/skazochnyy_les'}
+        item = 'https://t.me/skazochnyy_les'}
         )
     assert response.status_code == 200
     assert response.json() == {"message": "OK"}
