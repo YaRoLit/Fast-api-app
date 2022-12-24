@@ -11,7 +11,7 @@ def test_root():
 
 def test_find():
     response = client.get('/chats/')
-    files = [file for file in os.walk('Data')]
+    files = [file for file in os.walk('./Data')]
     assert response.status_code == 200
     assert response.text == files
 
@@ -23,14 +23,14 @@ def test_reload():
 def test_upload():
     response = client.post(
         '/upload/',
-        item = 'https://t.me/skazochnyy_les'
+        json = {'link': 'https://t.me/skazochnyy_les'}
         )
     assert response.status_code == 200
 
 def test_addlink_new():
     response = client.post(
         '/addlink/',
-        item = 'https://t.me/hp_main'
+        json = {'link': 'https://t.me/hp_main'}
         )
     assert response.status_code == 200
     assert response.json() == {"message": "OK"}
@@ -38,7 +38,7 @@ def test_addlink_new():
 def test_addlink_old():
     response = client.post(
         '/addlink/',
-        item = 'https://t.me/skazochnyy_les'
+        json = {'link': 'https://t.me/skazochnyy_les'}
         )
     assert response.status_code == 200
     assert response.json() == {"message": "OK"}
