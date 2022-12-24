@@ -7,23 +7,23 @@ client = TestClient(f.app)
 def test_root():
     response = client.get('/')
     assert response.status_code == 200
-    assert response.json() == {"message": f.info}
+    assert response.json() == {'message': f.info}
 
 def test_find():
     response = client.get('/chats/')
     files = [file for file in os.walk('./Data')]
     assert response.status_code == 200
-    assert response.text == files
+    assert response.text == files[0]
 
 def test_reload():
     response = client.get('/reload/')
     assert response.status_code == 200
-    assert response.json() == {"message": "chats uploading now. You have to wait some time for search uploading files."}
+    assert response.json() == {'message': 'Chats are uploading now. Please wait.'}
 
 def test_upload():
     response = client.post(
         '/upload/',
-        json = {'link': 'https://t.me/skazochnyy_les'}
+        json = {'link': 'skazochnyy_les.csv'}
         )
     assert response.status_code == 200
 
@@ -33,7 +33,7 @@ def test_addlink_new():
         json = {'link': 'https://t.me/hp_main'}
         )
     assert response.status_code == 200
-    assert response.json() == {"message": "OK"}
+    assert response.json() == {'message': 'OK'}
 
 def test_addlink_old():
     response = client.post(
@@ -41,4 +41,4 @@ def test_addlink_old():
         json = {'link': 'https://t.me/skazochnyy_les'}
         )
     assert response.status_code == 200
-    assert response.json() == {"message": "OK"}
+    assert response.json() == {'message': 'This link already exists'}
