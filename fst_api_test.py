@@ -11,7 +11,7 @@ def test_root():
 
 def test_find():
     response = client.get('/chats/')
-    files = [file for file in os.walk('./Data')]
+    files = [file for file in os.walk('./Data/')]
     assert response.status_code == 200
     assert response.json() == list(files[0])
 
