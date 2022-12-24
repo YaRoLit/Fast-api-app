@@ -1,5 +1,6 @@
 import fst_api as f
 from fastapi.testclient import TestClient
+import os
 
 client = TestClient(f.app)
 
@@ -10,8 +11,9 @@ def test_root():
 
 def test_find():
     response = client.get('/chats/')
+    files = [file for file in os.walk('Data')]
     assert response.status_code == 200
-#    assert response.
+    assert response.text == files
 
 def test_reload():
     response = client.get('/reload/')
@@ -24,7 +26,6 @@ def test_upload():
         json={'item': 'https://t.me/skazochnyy_les'}
         )
     assert response.status_code == 200
-#    assert response.
 
 def test_addlink_new():
     response = client.post(
@@ -40,4 +41,4 @@ def test_addlink_old():
         json={'item': 'https://t.me/skazochnyy_les'}
         )
     assert response.status_code == 200
-    assert response.json() == {"message": "This link already exist"}
+    assert response.json() == {"message": "OK"}
